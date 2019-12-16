@@ -1,0 +1,11 @@
+{
+ "label": "BBC micro:bit", 
+ "fqbn": "sandeepmistry:nRF5:BBCmicrobit:softdevice=s110",
+ "manager_url": "https://sandeepmistry.github.io/arduino-nRF5/package_nRF5_boards_index.json",
+ "hex": "microbit_online_firmware.hex",
+ "driver": {"windows":"mbed_serial_microbit.exe"},
+ "version" : "1.0",
+
+ "digital_pins":[0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20],
+ "analog_pins": [0,1, 2, 4, 10]
+}

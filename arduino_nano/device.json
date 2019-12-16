@@ -1,0 +1,8 @@
+{
+"label": "Arduino - Nano", 
+"fqbn": "arduino:avr:nano328" ,
+"hex": "arduino_nano328.hex",
+"version" : "1.0",
+ "digital_pins":[0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+ "analog_pins": ["A0","A1", "A2", "A3", "A4", "A5", "A6", "A7"]
+}

@@ -1,0 +1,6 @@
+{
+"label": "Arduino - Leonardo", 
+"fqbn": "arduino:avr:leonardo" ,
+"hex": "arduino_leonardo.hex",
+"version" : "1.0"
+}

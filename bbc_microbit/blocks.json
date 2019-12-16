@@ -1,0 +1,168 @@
+{
+	"blockSpecs": [
+		
+
+		["category",  "motion"],
+		
+		["category",  "looks"],
+
+		["w", "show leds %m.drawPixels","showPixels", "",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_draw((String){0}\n);\n","loop":""}],
+
+		["w", "clear screen","clearScreen",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_clear();\n","loop":""}],
+
+		["w", "show number %n","showNumber", "0",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_number({0});\n","loop":""}],
+
+		["w", "show number %n with points","showNumber100k", "0",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_number_100k({0});\n","loop":""}],
+
+		["w", "show text %s","showText", "X",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_text({0});\n","loop":""}],
+
+		["w", "plot x:%m.numcoords y:%m.numcoords","plot", "0","0",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_on({0}, {1});\n","loop":""}],
+
+		["w", "unplot x:%m.numcoords y:%m.numcoords","unplot", "0","0",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_off({0}, {1});\n","loop":""}],
+
+		["w", "set pixel x:%m.numcoords y:%m.numcoords  state%m.onoff","setPixel", "0","0", "On",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_set({0}, {1}, {2});\n","loop":""}],
+
+		["w", "toggle pixel x:%m.numcoords y:%m.numcoords","togglePixel", "0","0",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_toggle({0}, {1});\n","loop":""}],
+	
+
+		["r", "get pixel x:%m.numcoords y:%m.numcoords","getPixel", "0","0",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_off({0}, {1}, LED_OFF);\n","loop":""}],
+
+		["w", "stop animation","stopAnim",
+		{"encode":"","setup":"","inc":"","def":"","work":"mbit_stop_animation();\n","loop":""}],
+
+
+	
+
+
+		["category",  "events"],
+
+		["h","On Star micro:bit","runArduino",{"src":"mbot","inc":"","def":"","setup":"","loop":""}],
+		
+		["h", "on button %m.btns is %m.button_state","whenButton","A", "pressed", 
+	    {"encode": "{n7}{d0}","setup":"","inc":"","def":"","work":"","loop":""}
+		],
+		
+		["B", "button %m.btns is pressed ","getBtn","A",
+		{"encode":"","setup":"","inc":"","def":"","work":"( mbit_{{0}}_pressed() )","loop":""}],
+		
+		
+		["h", "on pin %m.pins is %m.button_state","whenPin","P0", "pressed", 
+	    {"encode": "","setup":"","inc":"","def":"","work":"","loop":""}
+		],
+
+		["B", "pin %m.pins is pressed ","getPin","P0",
+		{"encode":"","setup":"","inc":"","def":"","work":"(  mbit_{{0}}_pressed() )","loop":""}],
+
+
+		
+
+		["h", "on gesture %m.gesture","whenGesture", "face up", 
+	    {"encode": "","setup":"","inc":"","def":"","work":"","loop":"mbit_accel_update();"}
+		],
+		
+		
+		["category",  "sound"],
+
+				
+		["w", "play tone %d.notes duration %d.beats","runTone", "C4","Half",
+		{"encode":"","setup":"","inc":"","def":"","work":"tone(0, {0},{1});\n","loop":""}],
+
+		["w", "stop tone pin %n","stopTone", 
+		{"encode":"","setup":"","inc":"","def":"","work":"noTone(0);","loop":""}],
+		
+		
+				
+		
+		["category",  "sensing"],
+
+		["R", "acceleration %m.coord","getAcceleration", "x",
+		{"encode":"{n0}","setup":"","inc":"","def":"","work":"mbit_accel({0})","loop":"check();"}],
+
+		["R", "temperature","getTemp", 
+		{"encode":"{n0}","setup":"","inc":"","def":"","work":"mbit_temp()","loop":""}],
+
+		["R", "light level","getLight", 
+		{"encode":"{n0}","setup":"","inc":"","def":"","work":"mbit_light_level()","loop":""}]
+	
+
+		
+	],
+	"menus": {
+		
+		"button_state":["pressed","released"],
+		"btns":["A","B"],
+		"pins":["P0","P1", "P2"],
+		"coord":["x","y", "z"],
+		"gesture":["tilt right","tilt left", "tilt down", "tilt up", "face down", "face up", "free fall", "3g", "6g", "8g"],
+		"onoff": ["On", "Off"],
+		"numcoords":[0,1,2,3,4],
+		"notes":["C2","D2","E2","F2","G2","A2","B2","C3","D3","E3","F3","G3","A3","B3","C4","D4","E4","F4","G4","A4","B4","C5","D5","E5","F5","G5","A5","B5","C6","D6","E6","F6","G6","A6","B6","C7","D7","E7","F7","G7","A7","B7","C8","D8"],
+		"beats":["Half","Quarter","Eighth","Whole","Double","Zero"]
+
+
+	},
+	"values":{
+		
+
+
+		"pressed":1,
+		"released":0,
+		"On":1,
+		"Off":0,
+		"LOW":0,
+		"HIGH":1,
+		"A": 5,
+		"B": 11,
+		"B0":31,"C1":33,"D1":37,"E1":41,"F1":44,"G1":49,"A1":55,"B1":62,
+			"C2":65,"D2":73,"E2":82,"F2":87,"G2":98,"A2":110,"B2":123,
+			"C3":131,"D3":147,"E3":165,"F3":175,"G3":196,"A3":220,"B3":247,
+			"C4":262,"D4":294,"E4":330,"F4":349,"G4":392,"A4":440,"B4":494,
+			"C5":523,"D5":587,"E5":659,"F5":698,"G5":784,"A5":880,"B5":988,
+			"C6":1047,"D6":1175,"E6":1319,"F6":1397,"G6":1568,"A6":1760,"B6":1976,
+			"C7":2093,"D7":2349,"E7":2637,"F7":2794,"G7":3136,"A7":3520,"B7":3951,
+			"C8":4186,"D8":4699,
+		"Half":500,"Quarter":250,"Eighth":125,"Whole":1000,"Double":2000,"Zero":0
+
+	},
+	"translators":{
+	}, 
+
+	"removeFromBase":[""], 
+
+	"callbacks":{ "10":"whenButton_A_pressed",
+				  "11":"whenButton_A_released",
+				  "12":"whenButton_B_pressed",
+				  "13":"whenButton_B_released",
+				  
+				  "20":"whenPin_P0_pressed",
+				  "21":"whenPin_P0_released",
+				  "22":"whenPin_P1_pressed",
+				  "23":"whenPin_P1_released",
+				  "24":"whenPin_P2_pressed",
+				  "25":"whenPin_P2_released",
+				  
+
+				  "101":"whenGesture_tilt_right", 
+				  "102":"whenGesture_tilt_left", 
+				  "103":"whenGesture_tilt_down", 
+				  "104":"whenGesture_tilt_up", 
+				  "106":"whenGesture_face_down", 
+				  "105":"whenGesture_face_up", 
+				  "107":"whenGesture_free_fall", 
+				  "108":"whenGesture_3g", 
+				  "109":"whenGesture_6g", 
+				  "110":"whenGesture_8g" 
+				}
+	
+	}
+}
