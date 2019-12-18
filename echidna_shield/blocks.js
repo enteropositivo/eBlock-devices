@@ -1,10 +1,11 @@
 // mBot.js
 
-
 (function(ext) {
     var device = null;
-   
+    var _rxBuf = [];
 
+    var leds = {"Red":13, "Orange":12, "Green":11};	
+    var onoff = {"On":1, "Off":0};
        
 	var tones ={"B0":31,"C1":33,"D1":37,"E1":41,"F1":44,"G1":49,"A1":55,"B1":62,
 			"C2":65,"D2":73,"E2":82,"F2":87,"G2":98,"A2":110,"B2":123,
@@ -17,7 +18,7 @@
 	var beats = {"Half":500,"Quarter":250,"Eighth":125,"Whole":1000,"Double":2000,"Zero":0};
 	
 	var startTimer = 0;
-	
+	var responsePreprocessor = {};
     ext.resetAll = function(){
     	device.send([0xff, 0x55, 2, 0, 4]);
     };
@@ -25,9 +26,15 @@
 		responseValue();
 	};
 		
-	ext.showPixels = function(bytes){
+	ext.setLed = function(led, state){
+		
 		// convertir el string a butes
-		runPackage(100,bytes);
+		if(onoff[state]==1){
+			runPackage(203,leds[led]);  //pin_on
+		}else{
+			runPackage(204,leds[led]); //pin_off
+
+		}
 
 	};
 
@@ -147,11 +154,9 @@
 		sendPackage(arguments, 1);
 	}
 
- 	var _rxBuf = [];
     var inputArray = [];
 	var _isParseStart = false;
 	var _isParseStartIndex = 0;
-	var responsePreprocessor = {};
     function processData(bytes) {
 		var len = bytes.length;
 		if(_rxBuf.length>30){

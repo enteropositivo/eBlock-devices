@@ -46,7 +46,7 @@
 
 		["category",  "events"],
 
-		["h","On Star micro:bit","runArduino",{"src":"mbot","inc":"","def":"","setup":"","loop":""}],
+		["h","On start micro:bit","runArduino",{"src":"mbot","inc":"","def":"","setup":"","loop":""}],
 		
 		["h", "on button %m.btns is %m.button_state","whenButton","A", "pressed", 
 	    {"encode": "{n7}{d0}","setup":"","inc":"","def":"","work":"","loop":""}
