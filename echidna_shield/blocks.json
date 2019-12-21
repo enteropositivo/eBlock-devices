@@ -8,22 +8,27 @@
 
 		
 		["w", "set led %m.leds to state%m.onoff","setLed", "Red","On",
-		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_set({0}, {1}, {2});\n","loop":""}],
+		{"encode":"","setup":"","inc":"","def":"","work":"echidna_led({0}, {1});\n","loop":""}],
 
 		["w", "toggle led %m.leds ","toggleLed", "Red",
 		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_toggle({0}, {1});\n","loop":""}],
 	
 
+		["w", "set RGB led R%m.rgb_values G%m.rgb_values B%m.rgb_values","setRGB", "255","0", "0",
+		{"encode":"","setup":"","inc":"","def":"","work":"e_pwm(9,{0});e_pwm(5,{1});e_pwm(6,{2});\n","loop":""}],
+
+
+
 		["category",  "events"],
 
 		["h","On start Echidna","runArduino",{"src":"mbot","inc":"","def":"","setup":"","loop":""}],
 		
-		["h", "on button %m.btns is %m.button_state","whenButton","SR", "pressed", 
+		["h", "on button %m.btns is %m.button_state","whenButton","SL", "pressed", 
 	    {"encode": "{n7}{d0}","setup":"","inc":"","def":"","work":"","loop":""}
 		],
 		
 		
-		["h", "on pin %m.pins is %m.button_state","whenPin","P0", "pressed", 
+		["h", "on pin %m.pins is %m.button_state","whenPin","A0", "pressed", 
 	    {"encode": "","setup":"","inc":"","def":"","work":"","loop":""}
 		],
 
@@ -45,24 +50,27 @@
 		
 		["category",  "sensing"],
 
+		["R", "joystick %m.coord","getJoystick", "x",
+		{"encode":"{n0}","setup":"","inc":"","def":"","work":"e_get_analog_perc({0})","loop":""}],
+
 		["R", "acceleration %m.coord","getAcceleration", "x",
-		{"encode":"{n0}","setup":"","inc":"","def":"","work":"mbit_accel({0})","loop":"check();"}],
+		{"encode":"","setup":"","inc":"","def":"","work":"e_get_analog_perc(A2+{0})","loop":"check();"}],
 
-		["R", "temperature","getTemp", 
-		{"encode":"{n0}","setup":"","inc":"","def":"","work":"mbit_temp()","loop":""}],
+		["R", "light sensor","getLight", 
+		{"encode":"","setup":"","inc":"","def":"","work":"get_analog_perc(A5)","loop":""}]
 
-		["R", "light level","getLight", 
-		{"encode":"{n0}","setup":"","inc":"","def":"","work":"mbit_light_level()","loop":""}]
+		
 	
 
 		
 	],
 	"menus": {
 		
+		"rgb_values":[0,50,100,150,200,255],
 		"button_state":["pressed","released"],
-		"btns":["SR","SL", "Joystick-SJ"],
+		"btns":["SR/SJ","SL"],
 		"pins":["A0","A1", "A2", "A3", "A4", "A5", "D2", "D3"],
-		"leds":["Red","Orange", "Green"],
+		"leds":["Red","Orange", "Green", "All"],
 		"coord":["x", "y"],
 		"onoff": ["On", "Off"],
 		"notes":["C2","D2","E2","F2","G2","A2","B2","C3","D3","E3","F3","G3","A3","B3","C4","D4","E4","F4","G4","A4","B4","C5","D5","E5","F5","G5","A5","B5","C6","D6","E6","F6","G6","A6","B6","C7","D7","E7","F7","G7","A7","B7","C8","D8"],
@@ -82,8 +90,11 @@
 		"SR": 2,
 		"SL": 3,
 		"Red":13,
-		"Oranger":12,
+		"Orange":12,
 		"Green":11,
+		"All":0,
+		"x":0,
+		"y":1,
 
 		"B0":31,"C1":33,"D1":37,"E1":41,"F1":44,"G1":49,"A1":55,"B1":62,
 			"C2":65,"D2":73,"E2":82,"F2":87,"G2":98,"A2":110,"B2":123,
@@ -101,30 +112,25 @@
 
 	"removeFromBase":[""], 
 
-	"callbacks":{ "10":"whenButton_SR_pressed",
-				  "11":"whenButton_SR_released",
-				  "12":"whenButton_SL_pressed",
-				  "13":"whenButton_SL_released",
-				  "14":"whenButton_SJ_pressed",
-				  "15":"whenButton_SJ_released",
+	"callbacks":{ "1":"whenButton_SR_SJ_pressed",
+				  "2":"whenButton_SR_SJ_released",
+				  "3":"whenButton_SL_pressed",
+				  "4":"whenButton_SL_released",
 				  
-				  "20":"whenPin_A0_pressed",
-				  "21":"whenPin_A0_released",
-				  "22":"whenPin_A1_pressed",
-				  "23":"whenPin_A1_released",
-				  "24":"whenPin_A2_pressed",
-				  "25":"whenPin_A2_released",
-				  "26":"whenPin_A3_pressed",
-				  "27":"whenPin_A3_released",
-				  "28":"whenPin_A4_pressed",
-				  "29":"whenPin_A4_released",
-				  "30":"whenPin_A5_pressed",
-				  "31":"whenPin_A5_released",
-				  "32":"whenPin_D2_pressed",
-				  "33":"whenPin_D2_released",
-				  "34":"whenPin_D3_pressed",
-				  "35":"whenPin_D3_released",
 				  
+				  "5":"whenPin_A0_pressed",
+				  "6":"whenPin_A0_released",
+				  "7":"whenPin_A1_pressed",
+				  "8":"whenPin_A1_released",
+				  "9":"whenPin_A2_pressed",
+				  "10":"whenPin_A2_released",
+				  "11":"whenPin_A3_pressed",
+				  "12":"whenPin_A3_released",
+				  "13":"whenPin_A4_pressed",
+				  "14":"whenPin_A4_released",
+				  "15":"whenPin_A5_pressed",
+				  "16":"whenPin_A5_released",
+							  
 				  
 				}
 	

@@ -1,3 +1,0 @@
-# Pinout
-![pinout](pinout.png) 
-
