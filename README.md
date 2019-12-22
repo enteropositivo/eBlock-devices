@@ -14,7 +14,7 @@ Here are some devices you can use with eBlock but you can create your own device
   <br>
   <a href="#information">Information</a>
    ·
-  <a href="https://github.com/distintiva/eBlock/issues">Contribute</a>
+  <a href="#contribute">Contribute</a>
   ·
 </p>
 
