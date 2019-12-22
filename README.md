@@ -12,8 +12,11 @@ Here are some devices you can use with eBlock but you can create your own device
   <a href="https://github.com/distintiva/eBlock"><strong>Go to eBlock Application Repository</strong></a>
   <br>
   <br>
+  
   <a href="#information">Information</a>
    ·
+  <a href="#make-a-custom-device">Make a custom device</a>
+  · 
   <a href="#contribute">Contribute</a>
   ·
 </p>
@@ -83,6 +86,49 @@ Define custom blocks you want to appear once users select your device.  Like ext
 ### template.c
 
 This is the c/c++ code template where eBlock will render sratch code.  But you can place some specific functions and includes that will need your device to compile and upload source code.
+
+```c
+#include "eblock.h"
+//include
+
+//define
+//serialParser
+void setup(){
+  Serial.begin(9600);
+  //setup
+}
+
+void loop(){
+//serialParserCall
+//loop
+   _loop();
+}
+
+void _loop(){
+//_loop
+}
+
+//function
+
+void echidna_led(uint8_t pin, uint8_t state ){
+    if(pin==0){ //ALL pins
+        e_pin_set(11,state);
+        e_pin_set(12,state);
+        e_pin_set(13,state);
+     }else{
+        e_pin_set(pin,state);
+    };
+}
+
+void register_callback( uint8_t event,   void (*in_main_func)()  ){
+}
+
+void _delay(float seconds){
+long endTime = millis() + seconds * 1000;
+while(millis() < endTime)_loop();
+}
+
+```
 
 
 ### README.md
