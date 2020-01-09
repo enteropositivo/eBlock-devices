@@ -2,7 +2,7 @@
  
   "label": "Echidna Shield",
   "fqbn": "arduino:avr:uno",
-  "hex": "arduino_uno.hex",
+  "hex": "echidna_online_firmware.hex",
   "driver": {"windows":"driver_ch340_arduino.exe"},
   "version" : "1.0",
   "digital_pins":[0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],

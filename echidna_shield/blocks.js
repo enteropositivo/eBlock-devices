@@ -5,7 +5,7 @@
     
 
     var leds = {"Red":13, "Orange":12, "Green":11, "All":0};	
-    var onoff = {"On":1, "Off":0};
+    var onoff = {"On":1, "Off":0, "Toggle":2};
        
 	var tones ={"B0":31,"C1":33,"D1":37,"E1":41,"F1":44,"G1":49,"A1":55,"B1":62,
 			"C2":65,"D2":73,"E2":82,"F2":87,"G2":98,"A2":110,"B2":123,
@@ -29,18 +29,18 @@
 	ext.setLed = function(led, state){
 		
 		if(leds[led]==0){ //- All leds
-			device.e_pin_set(11, onoff[state]);	
-			device.e_pin_set(12, onoff[state]);
-			device.e_pin_set(13, onoff[state]);
+			device.pin_set(11, onoff[state]);	
+			device.pin_set(12, onoff[state]);
+			device.pin_set(13, onoff[state]);
 			return;
 		}
 
-		// convertir el string a butes
 		if(onoff[state]==1){
 			device.pin_on(leds[led]);  //pin_on
-		}else{
+		}else if(onoff[state]==0){
 			device.pin_off(leds[led]); //pin_off
-
+		}else{
+			device.pin_toggle(leds[led]); //pin_toggle
 		}
 
 	};

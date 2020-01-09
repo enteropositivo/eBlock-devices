@@ -12,13 +12,11 @@ Here are some devices you can use with eBlock but you can create your own device
   <a href="https://github.com/distintiva/eBlock"><strong>Go to eBlock Application Repository</strong></a>
   <br>
   <br>
-  
   <a href="#information">Information</a>
    ·
   <a href="#make-a-custom-device">Make a custom device</a>
   · 
   <a href="#contribute">Contribute</a>
-  ·
 </p>
 
 # Information
@@ -64,13 +62,13 @@ _device.json_
 ```
 
 
-- **label** Is a readable name for this device 
-- **version** You can set a version number 
-- **fqbn**  Fully Qualified Board Name to tell [arduino-cli](https://github.com/arduino/arduino-cli/#readme) how to compile  (ex.: esp8266:esp8266:nodemcuv2 )
-- **hex** Provide users an array of firmwares avaliable to flash 
-- **driver** The exeutable driver installer name.  Driver must reside under **eBlock/resources/drivers/** 
-- **digital_pins** Pins that will use some blocks for digital in/out functions
-- **digital_pins** Pins that will use some blocks for analog input functions
+- **label:** Is a readable name for this device 
+- **version:** You can set a version number 
+- **fqbn:**  Fully Qualified Board Name to tell [arduino-cli](https://github.com/arduino/arduino-cli/#readme) how to compile  (ex.: esp8266:esp8266:nodemcuv2 )
+- **hex:** Provide users an array of firmwares avaliable to flash 
+- **driver:** The exeutable driver installer name.  Driver must reside under **eBlock/resources/drivers/** 
+- **digital_pins:** Pins that will use some blocks for digital in/out functions
+- **digital_pins:** Pins that will use some blocks for analog input functions
 
 
 ## Advanced configuration (optional)

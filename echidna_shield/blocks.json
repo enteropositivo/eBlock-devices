@@ -14,8 +14,8 @@
 		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_toggle({0}, {1});\n","loop":""}],
 	
 
-		["w", "set RGB led R%m.rgb_values G%m.rgb_values B%m.rgb_values","setRGB", "255","0", "0",
-		{"encode":"","setup":"","inc":"","def":"","work":"e_pwm(9,{0});e_pwm(5,{1});e_pwm(6,{2});\n","loop":""}],
+		["w", "set RGB led R%d.rgb_values G%d.rgb_values B%d.rgb_values","setRGB", "255","0", "0",
+		{"encode":"{d0}{d1}{d2}","setup":"","inc":"","def":"","work":"e_pwm(9,{0});e_pwm(5,{1});e_pwm(6,{2});\n","loop":""}],
 
 
 
@@ -28,22 +28,15 @@
 		],
 		
 		
-		["h", "on pin %m.pins is %m.button_state","whenPin","A0", "pressed", 
-	    {"encode": "","setup":"","inc":"","def":"","work":"","loop":""}
-		],
-
-		["B", "pin %m.pins is pressed ","getPin","P0",
-		{"encode":"","setup":"","inc":"","def":"","work":"(  mbit_{{0}}_pressed() )","loop":""}],
-
-
+		
 		["category",  "sound"],
 
 				
 		["w", "play tone %d.notes duration %d.beats","runTone", "C4","Half",
-		{"encode":"","setup":"","inc":"","def":"","work":"tone(0, {0},{1});\n","loop":""}],
+		{"encode":"","setup":"","inc":"","def":"","work":"tone(10, {0},{1});\n","loop":""}],
 
-		["w", "stop tone pin %n","stopTone", 
-		{"encode":"","setup":"","inc":"","def":"","work":"noTone(0);","loop":""}],
+		["w", "stop tone","stopTone", 
+		{"encode":"","setup":"","inc":"","def":"","work":"noTone(10);","loop":""}],
 		
 		
 				
@@ -54,7 +47,7 @@
 		{"encode":"{n0}","setup":"","inc":"","def":"","work":"e_get_analog_perc({0})","loop":""}],
 
 		["R", "acceleration %m.coord","getAcceleration", "x",
-		{"encode":"","setup":"","inc":"","def":"","work":"e_get_analog_perc(A2+{0})","loop":"check();"}],
+		{"encode":"","setup":"","inc":"","def":"","work":"e_get_analog_perc(A2+{0})","loop":""}],
 
 		["R", "light sensor","getLight", 
 		{"encode":"","setup":"","inc":"","def":"","work":"get_analog_perc(A5)","loop":""}]
@@ -72,7 +65,7 @@
 		"pins":["A0","A1", "A2", "A3", "A4", "A5", "D2", "D3"],
 		"leds":["Red","Orange", "Green", "All"],
 		"coord":["x", "y"],
-		"onoff": ["On", "Off"],
+		"onoff": ["On", "Off", "Toggle"],
 		"notes":["C2","D2","E2","F2","G2","A2","B2","C3","D3","E3","F3","G3","A3","B3","C4","D4","E4","F4","G4","A4","B4","C5","D5","E5","F5","G5","A5","B5","C6","D6","E6","F6","G6","A6","B6","C7","D7","E7","F7","G7","A7","B7","C8","D8"],
 		"beats":["Half","Quarter","Eighth","Whole","Double","Zero"]
 
@@ -85,6 +78,7 @@
 		"released":0,
 		"On":1,
 		"Off":0,
+		"Toggle":2,
 		"LOW":0,
 		"HIGH":1,
 		"SR": 2,
@@ -92,7 +86,7 @@
 		"Red":13,
 		"Orange":12,
 		"Green":11,
-		"All":0,
+		"All":100,
 		"x":0,
 		"y":1,
 

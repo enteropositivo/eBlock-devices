@@ -16,6 +16,7 @@ _loop();
 
 void _loop(){
 //_loop
+	echidna_buttons_events();
 }
 
 //function
@@ -29,7 +30,15 @@ void echidna_led(uint8_t pin, uint8_t state ){
     };
 }
 
+void echidna_buttons_events(){
+   if( e_is_button_down(2) ) e_event_call(1);
+   if( e_is_button_up(2) )   e_event_call(2);
+   if( e_is_button_down(3) ) e_event_call(3);
+   if( e_is_button_up(3) )   e_event_call(4);
+}
+
 void register_callback( uint8_t event,   void (*in_main_func)()  ){
+	e_event( event, in_main_func);
 }
 
 void _delay(float seconds){
