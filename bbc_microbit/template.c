@@ -21,7 +21,7 @@ void _loop(){
 
 //function
 
-void register_callback( uint8_t event,   void (*in_main_func)()  ){
+void register_callback( uint8_t event,   void (*in_main_func)(uint8_t)  ){
      mbit_on( event, in_main_func );
 }
 

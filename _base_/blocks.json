@@ -12,7 +12,19 @@
 
 		["w", "stop tone pin %n","stopTone", "9",
 		{"encode":"","setup":"","inc":"","def":"","work":"noTone({0});","loop":""}],
+
 		
+		["w", "play rtttl %s on pin %n","playRtttl", "Arkanoid:d=4,o=5,b=140:8g6,16p,16g.6,2a#6,32p,8a6,8g6,8f6,8a6,2g6", "9",
+		{"encode":"","setup":"rtttl::callbacks( tone, noTone );\n","inc":"#include <NonBlockingRtttl.h>\n","def":"","work":"rtttl::begin({1}, {0});\n","loop":"rtttl::play();\n"}],
+		
+		["w", "stop rtttl","stopRtttl", 
+		{"encode":"","setup":"","inc":"","def":"","work":"rtttl::stop();\n","loop":""}],
+
+		["w", "wait for rtttl to end","waitRtttl", 
+		{"encode":"","setup":"","inc":"","def":"","work":"while( !rtttl::done() ){ rtttl::play(); }\n","loop":""}],
+
+		["B", "rtttl is playing ","isRtttl",
+		{"encode":"","setup":"","inc":"","def":"","work":"(rtttl::isPlaying())","loop":""}],
 
 		["category", "motion"],
 		["w", "set servo pin%m.digital_pins angle as %d.servovalue","runServoArduino", "9", 90,
