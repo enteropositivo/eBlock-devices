@@ -57,7 +57,7 @@
 		{"encode":"{s0}","setup":"","inc":"","def":"MeBuzzer buzzer;\n","work":"buzzer.tone({0}, {1});\ndelay(20);\n","loop":""}],
 		
 		["w", "play rtttl %s","playRtttl", "Arkanoid:d=4,o=5,b=140:8g6,16p,16g.6,2a#6,32p,8a6,8g6,8f6,8a6,2g6",
-		{"encode":"","setup":"rtttl::callbacks( eTone, eNoTone );\n","inc":"#include <eTone.h>\n#include <NonBlockingRtttl.h>\n","def":"","work":"rtttl::begin(8, {0});\n","loop":"rtttl::play();\n"}],
+		{"encode":"","setup":"rtttl::callbacks( eTone, eNoTone, 0 );\n","inc":"#include <eTone.h>\n#include <NonBlockingRtttl.h>\n","def":"","work":"rtttl::begin(8, {0});\n","loop":"rtttl::play();\n"}],
 		
 		
 		["category", "sensing"],

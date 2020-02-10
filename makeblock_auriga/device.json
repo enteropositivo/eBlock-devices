@@ -1,6 +1,6 @@
 {
 "label": "Makeblock - Ranger [Auriga]", 
-"fqbn": "arduino:avr:mega2560" ,
+"fqbn": "arduino:avr:mega" ,
 "hex": "makeblock_auriga.hex",
 "driver": {"windows":"driver_ch340_arduino.exe"},
 "version" : "1.0",

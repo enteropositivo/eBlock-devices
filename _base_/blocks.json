@@ -26,6 +26,10 @@
 		["B", "rtttl is playing ","isRtttl",
 		{"encode":"","setup":"","inc":"","def":"","work":"(rtttl::isPlaying())","loop":""}],
 
+		["R", "rttrl playing frequency %m.rttl_frq","rtttlFrq","real",
+		{"encode":"","setup":"","inc":"","def":"","work":"rtttl::frequency({0})","loop":""}],
+		
+
 		["category", "motion"],
 		["w", "set servo pin%m.digital_pins angle as %d.servovalue","runServoArduino", "9", 90,
 		{"encode":"{d0}{d1}","setup":"servo_{0}.attach({0}); // init pin\n","inc":"#include <Servo.h>\n","def":"Servo servo_{0};\n","work":"servo_{0}.write({1}); // write to servo\n","loop":""}],
@@ -81,6 +85,7 @@
 	"menus": {
 					
 		"beats":["500","250","125","1000","2000","0"],
+		"rttl_frq":["real", "mapped [0-255]"],
 		"servovalue":["0","45","90","135","180"],
 		"pwmvalue":["0","50","100","150","255"],
 		"digital":["HIGH","LOW"],
@@ -89,6 +94,8 @@
 	},
 	"values":{
 		"HIGH":1,"LOW":0,
+		"real":0,
+		"mapped [0-255]":1,
 		"B0":31,"C1":33,"D1":37,"E1":41,"F1":44,"G1":49,"A1":55,"B1":62,
 			"C2":65,"D2":73,"E2":82,"F2":87,"G2":98,"A2":110,"B2":123,
 			"C3":131,"D3":147,"E3":165,"F3":175,"G3":196,"A3":220,"B3":247,

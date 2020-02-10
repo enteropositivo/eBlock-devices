@@ -10,9 +10,6 @@
 		["w", "set led %m.leds to state%m.onoff","setLed", "Red","On",
 		{"encode":"","setup":"","inc":"","def":"","work":"echidna_led({0}, {1});\n","loop":""}],
 
-		["w", "toggle led %m.leds ","toggleLed", "Red",
-		{"encode":"","setup":"","inc":"","def":"","work":"mbit_led_toggle({0}, {1});\n","loop":""}],
-	
 
 		["w", "set RGB led R%d.rgb_values G%d.rgb_values B%d.rgb_values","setRGB", "255","0", "0",
 		{"encode":"{d0}{d1}{d2}","setup":"","inc":"","def":"","work":"e_pwm(9,{0});e_pwm(5,{1});e_pwm(6,{2});\n","loop":""}],

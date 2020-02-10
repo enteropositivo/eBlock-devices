@@ -2,7 +2,7 @@
 "label": "ESP8266 - Generic", 
 "fqbn": "esp8266:esp8266:generic" ,
 "manager_url": "https://arduino.esp8266.com/stable/package_esp8266com_index.json",
-"hex": "",
+"hex": "esp8266_generic.hex",
 "version" : "1.0",
  "digital_pins":[0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
  "analog_pins": ["A0","A1", "A2", "A3", "A4"]
