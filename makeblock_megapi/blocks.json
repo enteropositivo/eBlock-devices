@@ -1,6 +1,6 @@
 ﻿{	
 	"blockSpecs": [
-		["h","MegaPi Program","runArduino",{"src":"orion","inc":"#include <MeMegaPi.h>\n","def":"","setup":"//Set Pwm 8KHz\nTCCR1A = _BV(WGM10);\nTCCR1B = _BV(CS11) | _BV(WGM12);\nTCCR2A = _BV(WGM21) | _BV(WGM20);\nTCCR2B = _BV(CS21);\n\n","loop":""}],
+		["h","MegaPi Program","runArduino",{"src":"orion","inc":"#include <MeMegaPi.h>\n","def":"","setup":"","loop":""}],
 		
 		
 		["w", "%m.direction at speed %d.motorvalue","runBot", "run forward", 0,

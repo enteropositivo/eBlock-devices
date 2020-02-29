@@ -48,8 +48,8 @@
 		{"encode":"","setup":"pinMode({0},OUTPUT); /*{{0}}*/\n","inc":"","def":"","work":"digitalWrite({{0}},{1});\n","loop":""}],
 
 		["-", "Analog"],
-		["R", "analog read pin %m.analog_pins","getAnalog","0",
-		{"encode":"","setup":"pinMode(A{{0}},INPUT);\n","inc":"","def":"","work":"analogRead(A{{0}})","loop":""}],
+		["R", "analog read pin %m.analog_pins","getAnalog","A0",
+		{"encode":"","setup":"pinMode({{0}},INPUT);\n","inc":"","def":"","work":"analogRead({{0}})","loop":""}],
 		
 
 		["w", "analog write pin%m.digital_pins pwm to %d.pwmvalue","runPwm", "5", 0,

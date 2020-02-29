@@ -3,7 +3,7 @@
 
 
 		["category", "events"],
-		["h","Auriga Program","runArduino",{"src":"orion","inc":"#include <MeAuriga.h>\n","def":"","setup":"//Set Pwm 8KHz\nTCCR1A = _BV(WGM10);\nTCCR1B = _BV(CS11) | _BV(WGM12);\nTCCR2A = _BV(WGM21) | _BV(WGM20);\nTCCR2B = _BV(CS21);\n\n ","loop":""}],
+		["h","Auriga Program","runArduino",{"src":"orion","inc":"#include <MeAuriga.h>\n","def":"","setup":"","loop":""}],
 		
 		
 		["category", "motion"],
