@@ -72,7 +72,7 @@
 			ret = device.get_analog_perc(2+1); //A3
 		}	
 
-		responseValue(ret-48);
+		responseValue(ret);
 
 	};
 

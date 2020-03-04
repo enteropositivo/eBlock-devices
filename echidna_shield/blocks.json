@@ -23,6 +23,10 @@
 		["h", "on button %m.btns is %m.button_state","whenButton","SL", "pressed", 
 	    {"encode": "{n7}{d0}","setup":"","inc":"","def":"","work":"","loop":""}
 		],
+
+		["h", "on pin %m.analog_pins touched","whenPin","A0", 
+	    {"encode": "{n7}{d0}","setup":"","inc":"","def":"","work":"","loop":""}
+		],
 		
 		
 		
@@ -111,20 +115,13 @@
 				  "4":"whenButton_SL_released",
 				  
 				  
-				  "5":"whenPin_A0_pressed",
-				  "6":"whenPin_A0_released",
-				  "7":"whenPin_A1_pressed",
-				  "8":"whenPin_A1_released",
-				  "9":"whenPin_A2_pressed",
-				  "10":"whenPin_A2_released",
-				  "11":"whenPin_A3_pressed",
-				  "12":"whenPin_A3_released",
-				  "13":"whenPin_A4_pressed",
-				  "14":"whenPin_A4_released",
-				  "15":"whenPin_A5_pressed",
-				  "16":"whenPin_A5_released",
-							  
-				  
+				  "5":"whenPin_A0",
+				  "6":"whenPin_A1",
+				  "7":"whenPin_A2",
+				  "8":"whenPin_A3",
+				  "9":"whenPin_A4",
+				  "10":"whenPin_A5",
+								  				  
 				}
 	
 	}
