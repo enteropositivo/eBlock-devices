@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#readme">
-    <img src="https://raw.githubusercontent.com/distintiva/eBlock/master/img/eBlock.png" alt="eBlock logo" width="72" height="72">
+    <img src="https://raw.githubusercontent.com/enteropositivo/eBlock/master/img/eBlock.png" alt="eBlock logo" width="72" height="72">
   </a>
 </p>
 
@@ -9,7 +9,7 @@
 <p align="center">
 Here are some devices you can use with eBlock but you can create your own device 
   <br>
-  <a href="https://github.com/distintiva/eBlock"><strong>Go to eBlock Application Repository</strong></a>
+  <a href="https://github.com/enteropositivo/eBlock"><strong>Go to eBlock Application Repository</strong></a>
   <br>
   <br>
   <a href="#information">Information</a>
